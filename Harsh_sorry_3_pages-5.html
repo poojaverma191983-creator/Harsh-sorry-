@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Harsh 💌</title>
+<style>
+*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffe3ed,#fff8fb);color:#613d49;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.page{width:min(92%,420px);min-height:600px;background:#ffffffdd;border-radius:30px;padding:34px 25px;text-align:center;box-shadow:0 18px 55px #9b647522;display:none;position:relative;z-index:2}
+.page.active{display:flex;flex-direction:column;justify-content:center;animation:in .5s ease}
+h1{font-size:32px;margin:8px 0 14px;color:#b64d70}h2{color:#b64d70}p{font-size:17px;line-height:1.7}
+.big{font-size:65px;animation:beat 1.2s infinite}.tiny{font-size:14px;opacity:.7}
+button{border:0;border-radius:25px;padding:13px 22px;margin:7px;background:#d86c8c;color:#fff;font-size:15px;cursor:pointer}
+button.alt{background:#f3d3dd;color:#744452}
+.box{background:#fff0f5;padding:18px;border-radius:20px;margin:15px 0}
+.heart{position:fixed;bottom:-30px;font-size:22px;opacity:.6;animation:rise 6s linear infinite;z-index:1}
+@keyframes beat{50%{transform:scale(1.12)}}@keyframes in{from{opacity:0;transform:translateX(25px)}to{opacity:1;transform:none}}
+@keyframes rise{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<section class="page active" id="p1">
+<div class="big">💌</div>
+<h1>Harsh...</h1>
+<p>Ye normal sa <b>“sorry”</b> nahi hai. 🥺</p>
+<p>Mujhe tumse ek chhoti si baat dil se kehni hai...</p>
+<button onclick="next(2)">Open my message 💗</button>
+</section>
+
+<section class="page" id="p2">
+<div class="big">🥺</div>
+<h2>I’m Really Sorry, Harsh</h2>
+<div class="box">
+<p><b>Sorry Harsh...</b> 😭💗<br>
+Main tumse milne nahi aa payi, aur mujhe pata hai ki tumhe bura laga hoga.</p>
+<p>Honestly, mera intention tumhe disappoint karna bilkul nahi tha. Bas situation aisi ho gayi ki main aa nahi paayi.</p>
+</div>
+<p>Kaash main us time aa paati… but I hope tum meri situation samjhoge. 🫶🏻</p>
+<button onclick="next(3)">One last thing… 💕</button>
+</section>
+
+<section class="page" id="p3">
+<div class="big">💗</div>
+<h2>Harsh, Please Don't Be Angry 🥹</h2>
+<p>Milna miss ho gaya, iska matlab ye bilkul nahi ki mujhe parwah nahi hai.</p>
+<p><b>I’m genuinely sorry.</b> 🥺</p>
+<p>Ab thoda sa gussa kam kar do na… aur ek cute si smile de do. 🥹✨</p>
+<button onclick="forgive()">Okay, sorry accepted 💗</button>
+<button class="alt" onclick="alert('Theek hai 😭 thoda gussa kar lo… but zyada nahi! 🥺💗')">Still angry 😤</button>
+<div id="done" class="box" style="display:none">
+<b>YAYYY! 🥹💞</b><br>
+Thank you, Harsh! Ab no more gussa, okay? 🫂✨
+</div>
+</section>
+
+<script>
+function next(n){
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+ document.getElementById('p'+n).classList.add('active');
+}
+function forgive(){
+ document.getElementById('done').style.display='block';
+ for(let i=0;i<20;i++){
+  let x=document.createElement('div');x.className='heart';
+  x.textContent=['💗','💕','✨','🫶🏻'][i%4];
+  x.style.left=Math.random()*100+'%';
+  x.style.animationDelay=Math.random()*1+'s';
+  document.body.appendChild(x);
+  setTimeout(()=>x.remove(),6500);
+ }
+}
+</script>
+</body>
+</html>
